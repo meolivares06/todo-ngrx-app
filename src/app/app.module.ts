@@ -23,13 +23,6 @@ import { todoReducer } from './todos/todo.reducer';
     StoreModule.forRoot({ todos: todoReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
-      logOnly: false,
-      autoPause: true,
-      features: {
-        pause: false,
-        lock: true,
-        persist: true
-      }
     })
   ],
   providers: [],
