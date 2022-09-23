@@ -20,7 +20,7 @@ import { todoReducer } from './todos/todo.reducer';
     BrowserModule,
     ReactiveFormsModule,
     TodoModule,
-    StoreModule.forRoot({ todo: todoReducer }),
+    StoreModule.forRoot({ todos: todoReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false,
