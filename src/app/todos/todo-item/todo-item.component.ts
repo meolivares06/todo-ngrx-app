@@ -1,7 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Todo} from "../models/todo.model";
 import {FormControl, Validators} from "@angular/forms";
-import {toggle} from "../todo.actions";
+import {editar, toggle} from "../todo.actions";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../app.reducer";
 
@@ -28,11 +28,9 @@ export class TodoItemComponent implements OnInit {
     this.chckCompletado = new FormControl(this.todo.completado);
     this.txtInput = new FormControl(this.todo.texto, Validators.required);
 
-    this.chckCompletado.valueChanges.subscribe(check => {
-      console.log(check);
-      this.store.dispatch(toggle({id: this.todo.id}))
-      console.log(this.todo.id);
-    })
+    this.chckCompletado.valueChanges.subscribe(() => {
+      this.store.dispatch(toggle({ id: this.todo.id }))
+    });
   }
 
   editar(): void {
@@ -43,7 +41,15 @@ export class TodoItemComponent implements OnInit {
     }, 1);
   }
 
-  terminarEdicion() {
+  terminarEdicion(): void {
     this.editando = false;
+    this.txtInput.setValue(this.todo.texto);
+    if(this.txtInput.invalid) return;
+    if(this.txtInput.value === this.todo.texto) return;
+
+    this.store.dispatch(editar({
+      id: this.todo.id,
+      texto: this.txtInput.value
+    }));
   }
 }
