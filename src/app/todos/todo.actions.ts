@@ -14,3 +14,8 @@ export const editar = createAction(
   '[TODO] Edit todo',
   props<{ id: number; texto: string; }>()
 );
+
+export const borrar = createAction(
+  '[TODO] Borrar todo',
+  props<{ id: number; }>()
+);

@@ -1,7 +1,7 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Todo} from "../models/todo.model";
 import {FormControl, Validators} from "@angular/forms";
-import {editar, toggle} from "../todo.actions";
+import {borrar, editar, toggle} from "../todo.actions";
 import {Store} from "@ngrx/store";
 import {AppState} from "../../app.reducer";
 
@@ -51,5 +51,9 @@ export class TodoItemComponent implements OnInit {
       id: this.todo.id,
       texto: this.txtInput.value
     }));
+  }
+
+  borrar() {
+    this.store.dispatch(borrar({ id: this.todo.id }));
   }
 }
