@@ -4,6 +4,7 @@ import {Store} from "@ngrx/store";
 import {AppState} from "../../app.reducer";
 import {setFilter} from "../../filter/filter.actions";
 import {Todo} from "../models/todo.model";
+import {borrarCompletados} from "../todo.actions";
 
 @Component({
   selector: 'app-todo-footer',
@@ -27,5 +28,9 @@ export class TodoFooterComponent implements OnInit {
 
   selectFilter(filter: Filter) {
     this.store.dispatch(setFilter({filter}));
+  }
+
+  borrarCompletados(): void {
+    this.store.dispatch(borrarCompletados());
   }
 }

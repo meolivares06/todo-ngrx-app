@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setFilter } from "./filter.actions";
+import { setFilter} from "./filter.actions";
 
 export const enum FILTERS_TYPES {
   ALL = 'ALL',
