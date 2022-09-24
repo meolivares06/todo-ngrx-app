@@ -24,7 +24,3 @@ export const toggleAll = createAction(
   '[TODO] Seleccionar todos',
   props<{ completado: boolean }>()
 );
-
-export const filterAll = createAction(
-  '[TODO] Filter todos'
-);
