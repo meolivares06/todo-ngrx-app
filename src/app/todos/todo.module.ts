@@ -10,8 +10,6 @@ import { TodoPageComponent } from './todo-page/todo-page.component';
 import { FiltroPipe } from './filtro.pipe';
 
 
-
-
 @NgModule({
   declarations: [
     TodoAddComponent,

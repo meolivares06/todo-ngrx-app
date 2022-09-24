@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Filter, FILTERS_TYPES} from "../../filter/filter.reducer";
 import {Store} from "@ngrx/store";
+
+import {ValidFilter, FILTERS_TYPES} from "../../filter/filter.reducer";
 import {AppState} from "../../app.reducer";
 import {setFilter} from "../../filter/filter.actions";
 import {Todo} from "../models/todo.model";
@@ -12,8 +13,8 @@ import {borrarCompletados} from "../todo.actions";
   styleUrls: ['./todo-footer.component.scss']
 })
 export class TodoFooterComponent implements OnInit {
-  filterSelected!: Filter;
-  filtersOption: Filter[] = [FILTERS_TYPES.ALL, FILTERS_TYPES.ACTIVE, FILTERS_TYPES.COMPLETED]
+  filterSelected!: ValidFilter;
+  filtersOption: ValidFilter[] = [FILTERS_TYPES.ALL, FILTERS_TYPES.ACTIVE, FILTERS_TYPES.COMPLETED]
   pendientes!: number;
 
   constructor(private store: Store<AppState>) {
@@ -26,7 +27,7 @@ export class TodoFooterComponent implements OnInit {
     });
   }
 
-  selectFilter(filter: Filter) {
+  selectFilter(filter: ValidFilter) {
     this.store.dispatch(setFilter({filter}));
   }
 

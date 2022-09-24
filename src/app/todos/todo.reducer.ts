@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
 import {borrar, borrarCompletados, crear, editar, toggle, toggleAll} from './todo.actions';
 
-export const initialState: Todo[] = [
+export const initialState: ReadonlyArray<Todo> = [
   new Todo('Leer Romanos'),
   new Todo('Leer Marcos'),
   new Todo('Leer Juan'),

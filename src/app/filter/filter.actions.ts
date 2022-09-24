@@ -1,7 +1,7 @@
 import {createAction, props} from "@ngrx/store";
-import {Filter} from "./filter.reducer";
+import {ValidFilter} from "./filter.reducer";
 
 export const setFilter = createAction(
   '[Filter] Set filter',
-  props<{ filter: Filter }>()
+  props<{ filter: ValidFilter }>()
 );

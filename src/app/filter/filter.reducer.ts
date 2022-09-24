@@ -7,9 +7,9 @@ export const enum FILTERS_TYPES {
   COMPLETED = 'COMPLETED'
 }
 
-export type Filter = 'ALL' | 'ACTIVE' | 'COMPLETED' ;
+export type ValidFilter = 'ALL' | 'ACTIVE' | 'COMPLETED' ;
 
-export const initialState: Filter = 'ALL';
+export const initialState: ValidFilter = FILTERS_TYPES.ALL;
 
 export const filterReducer = createReducer(
   initialState,

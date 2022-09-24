@@ -1,8 +1,9 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {Todo} from "../models/todo.model";
 import {FormControl, Validators} from "@angular/forms";
-import {borrar, editar, toggle} from "../todo.actions";
 import {Store} from "@ngrx/store";
+
+import {Todo} from "../models/todo.model";
+import {borrar, editar, toggle} from "../todo.actions";
 import {AppState} from "../../app.reducer";
 
 @Component({
